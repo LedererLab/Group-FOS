@@ -22,5 +22,7 @@ it doesn't need any instalation step. It just needs instalation of SPAMS toolbox
 # Licensing
 This package is licensed under the MIT license. To view the MIT license please consult LICENSE.txt.
 
-
+#  Authors
+Lederer's group
+mahsa.taheri@rub.de
 
