@@ -1,28 +1,47 @@
-# Group-FOS
+# GroupFOS
 
-This Toolkit provides FOS and GroupFOS method, the Fast and Optimal Selection algorithm and it's group version , a novel new method for variable selection and group variable selection.
-
-# Supported Languages
-
-This package is written in Matlab 2019.
-
-# Supported Platforms
-
-It supports the following operating systems :
-
-Windows,	
-OS,
-Linux	
-
-# Installation
-For matlab,
-it doesn't need any instalation step. It just needs instalation of SPAMS toolbox and then running script_simulation_unnormalized_FOS_NIPS.m. It runs FOS and GroupFOS on a synthetic dataset.
+This repository provides the  implementations of the methods described in [Balancing Statistical and Computational Precision and
+Applications to Penalized Linear Regression with
+Group Sparsity].
 
 
-# Licensing
-This package is licensed under the MIT license. To view the MIT license please consult LICENSE.txt.
+# Requirements
+You need to install SPAMS toolbox.
+ 
+# Usage
+Files `NewFOS.m` and `GroupFOS.m` contain functions FOS and Group-FOS.  
 
-#  Authors
-Lederer's group
-mahsa.taheri@rub.de
+# Simulations
 
+We provide an example code in `script_simulation_unnormalized_GroupFOS.m` .
+
+
+# Repository Authors 
+
+* Mahsa Taheri, Ph.D. student in Mathematical Statistics, Ruhr-University Bochum
+
+* Nehemy Lim, Professor in Department of Statistics, University of Connecticut
+
+* Johannes Lederer, Professor in Mathematical Statistics, Ruhr-University Bochum
+
+# Other files
+
+`grplasso.m`: K-fold cross-validation group-lasso.
+`simulate_linear_regression.m` (`simulate_linear_regression_group.m`) generates data (structured data).
+
+## Supported Languages and platforms
+
+All of the codes in this repository are written in MATLAB and supports all plarforms which are
+ supported by MATLAB itself.
+
+
+
+## Licensing
+
+The HDIM package is licensed under the MIT license. To
+view the MIT license please consult `LICENSE.txt`.
+
+## References
+[Balancing Statistical and Computational Precision and 
+Applications to Penalized Linear Regression with
+Group Sparsity]
