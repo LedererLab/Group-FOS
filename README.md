@@ -27,6 +27,7 @@ We provide an example code in `script_simulation_unnormalized_GroupFOS.m` .
 # Other files
 
 `grplasso.m`: K-fold cross-validation group-lasso.
+
 `simulate_linear_regression.m` (`simulate_linear_regression_group.m`) generates data (structured data).
 
 ## Supported Languages and platforms
