@@ -1,4 +1,4 @@
-# GroupFOS
+# Group-FOS
 
 This repository provides the  implementations of the methods described in [Balancing Statistical and Computational Precision and
 Applications to Penalized Linear Regression with
