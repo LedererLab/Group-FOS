@@ -1,4 +1,4 @@
-function [betaFOS,lambdaFOS,suppFOS,beta_sparse] = GroupFOS(X,y,Lambda,cStats,cComp,gamma,groups)
+function [betaFOS,lambdaFOS,suppFOS,beta_sparse] = GroupFOS(X,y,Lambda,cStats,cComp,gamma,groups,groups_l)
 %--------------------------------------------------------------------------
 %--------------------------------------------------------------------------
 %
@@ -89,11 +89,11 @@ function [betaFOS,lambdaFOS,suppFOS,beta_sparse] = GroupFOS(X,y,Lambda,cStats,cC
                 
         lambdaCur = Lambda(statsIt);
 % 		mexFistaFlat solves : minimize 0.5*||y-X*beta||_2^2 + lambda*||beta||_1
-        param.lambda = 0.5*lambdaCur;
+        param.lambda = lambdaCur;
         % param.lambda2 =0;
         stopCrit = false;
         betaOld = Beta(:,statsIt-1);        
-	    stopThresh = 0.5*gamma*(lambdaCur)^2/(nobs*(cStats^2)); % stopping threshold for the duality gap
+	    stopThresh = ((lambdaCur)^2*((3*cComp)/(2*cStats)-1)^2)/(nobs*cComp); % stopping threshold for the duality gap
         param.tol=stopThresh;
         betaOld = mexFistaFlat(y, X, betaOld, param);
         Beta(:,statsIt)=betaOld;
@@ -105,7 +105,7 @@ function [betaFOS,lambdaFOS,suppFOS,beta_sparse] = GroupFOS(X,y,Lambda,cStats,cC
           temp_g(j) = norm(Beta(match, statsIt)- Beta(match, i),2);
         end
         max_temp_g = max(temp_g);
-        if ((max_temp_g / (Lambda(statsIt) + Lambda(i))) - (3 / (cStats*nobs*2))) > 0
+        if ((max_temp_g / (Lambda(statsIt) + Lambda(i))) - (3/(nobs*cStats))) > 0
         statsCont = false; 
         break;
         end
@@ -126,7 +126,7 @@ function [betaFOS,lambdaFOS,suppFOS,beta_sparse] = GroupFOS(X,y,Lambda,cStats,cC
      suppFOS=[];
      beta_sparse=zeros(nvars,1);
     for i=1:ngroups
-      if (norm(betaFOS(groups==i,1),2) >  ((9*lambdaFOS) / (2*nobs*cStats)))  % mine page 8
+      if (norm(betaFOS(groups==i,1),2)/sqrt(groups_l) >  ((9*lambdaFOS) / (nobs*cStats)))  % mine page 8
        suppFOS=[suppFOS;i] ;
        beta_sparse(groups==i)=betaFOS(groups==i,1);
       end

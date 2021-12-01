@@ -10,10 +10,12 @@ You need to install SPAMS toolbox.
  
 # Usage
 Files `NewFOS.m` and `GroupFOS.m` contain functions FOS and Group-FOS.  
+Files `FOS_log_reg.m` contain functions for log-FOS. 
 
 # Simulations
 
-We provide an example code in `script_simulation_unnormalized_GroupFOS.m` .
+We provide an example code in `script_simulation_GroupFOS.m` for linear regression .
+We provide an example code in `script_simulation_logFOS.m` for logistic regression .
 
 
 # Repository Authors 
@@ -26,9 +28,8 @@ We provide an example code in `script_simulation_unnormalized_GroupFOS.m` .
 
 # Other files
 
-`grplasso.m`: k-fold cross-validation group-lasso.
-
 `simulate_linear_regression.m` generates data  and `simulate_linear_regression_group.m` generates structured data.
+`simulate_logistic_regression.m` generates data for logistic regression example. 
 
 ## Supported Languages and platforms
 
